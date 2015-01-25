@@ -12,7 +12,6 @@ app.use(express.static(__dirname + '/public'));
 //app.use(express.cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(passport.initialize());
-//app.use(app.router);
 app.use(morgan('combined'));
 
 passport.serializeUser(function(user, done) {
@@ -26,7 +25,6 @@ passport.deserializeUser(function(id, done) {
 
 passport.use('local-login', new LocalStrategy(
     function (username, password, done) {
-        console.log("in strategy.... " + username + " / " + password);
         if (username === 'foo' && password === 'bar') {
             done(null, 'foo');
         } else {
@@ -36,7 +34,6 @@ passport.use('local-login', new LocalStrategy(
 ));
 
 app.get('/', function(req, res) {
-    console.log("Got request ...");
     res.redirect(302, '/login.html');
 });
 
