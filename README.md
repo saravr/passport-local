@@ -1,4 +1,4 @@
-# passport-local
+# passport-local-demo
 
 Sample Node application to demonstrate the use of Local Strategy.
 
